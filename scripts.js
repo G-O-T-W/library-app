@@ -9,6 +9,15 @@ function Book(title, author, pages, readStatus) {
     this.author = author;
     this.pages = pages;
     this.readStatus = readStatus;
+
+    this.changeStatus = function(statusBtn) {
+        console.log(this.readStatus);
+        if(this.readStatus == 'Yes') {
+            this.readStatus = 'No';
+        } else {
+            this.readStatus = 'Yes';
+        }
+    }
 }
 
 
@@ -39,6 +48,15 @@ function addUtils(book, utils) {
     deleteBtn.classList.toggle('deleteBtn');
     deleteBtn.setAttribute('data-book-id', book.id);
 
+    // Add Read Status Button
+    const statusBtn = document.createElement('button');
+    if(book.readStatus == 'Yes') {
+        statusBtn.textContent = 'Not Read';
+    } else {
+        statusBtn.textContent = 'Read';
+    }
+    statusBtn.classList.toggle('statusBtn');
+
     // Add event listeners
     deleteBtn.addEventListener("click", (event) => {
         const bookID = event.target.getAttribute('data-book-ID');
@@ -52,6 +70,12 @@ function addUtils(book, utils) {
         }
     });
 
+    statusBtn.addEventListener("click", (event) => {
+        book.changeStatus();
+        displayLibrary(); 
+    })
+
+    utils.appendChild(statusBtn);
     utils.appendChild(deleteBtn);
 }
 
