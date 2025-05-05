@@ -46,6 +46,20 @@
     isolation: isolate;
   }
 
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+  }
+
+  .main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(238, 238, 238);
+  }
+
   .header {
     background-color: rgb(212, 173, 122);
     padding: 16px;
@@ -54,45 +68,30 @@
     align-items: center;
   }
 
-  .addBtn:hover {
-    cursor: pointer;
-  }
-
-  .main-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-
-  .library-container {
-    flex: 1;
-    display: flex;
-    background-color: rgb(238, 238, 238);
-  }
-
   .cards-container {
     width: 81%;
     margin: 16px auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content:center;
     gap: 8px;
   }
-
+  
   .card {
     background-color: rgb(255, 255, 255);
     padding: 16px;
-    width: 300px; 
+    width: 290px; 
     border: 1px solid rgb(190, 190, 190);
     border-radius: 2px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2)
   }
-
+  
   .footer {
     text-align: center;
     background-color: rgb(212, 173, 122);
     padding: 16px;
   }
-
+  
   
   dialog {
     position: fixed;
@@ -103,7 +102,7 @@
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     width: 300px;
   }
-
+  
   .top-bar {
     margin-left: auto;
     display: flex;
@@ -112,11 +111,15 @@
     border-bottom: 1px solid black;
     margin-bottom: 16px;
   }
-    
+  
   dialog::backdrop {
     background: rgba(0, 0, 0, 0.5);
   }
-    
+  
+  .addBtn:hover {
+    cursor: pointer;
+  }
+
   .closeBtn {
     border-radius: 50%;
     border: none;
