@@ -1,17 +1,13 @@
-const myLibrary = [];
-
-function Book(title, author, pages, readStatus) {
-    if (!new.target) {
-        throw new TypeError("calling Book constructor without new is invalid");
+class Book {
+    constructor(title, author, pages, readStatus){
+        this.id = crypto.randomUUID();
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.readStatus = readStatus;
     }
-    this.id = crypto.randomUUID();
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.readStatus = readStatus;
 
-    this.changeStatus = function(statusBtn) {
-        console.log(this.readStatus);
+    changeStatus(statusBtn) {
         if(this.readStatus == 'Yes') {
             this.readStatus = 'No';
         } else {
@@ -20,12 +16,12 @@ function Book(title, author, pages, readStatus) {
     }
 }
 
+const myLibrary = [];
 
 function addBookToLibrary(title, author, pages, readStatus) {
     const book = new Book(title, author, pages, readStatus)
     myLibrary.push(book);
 }
-
 
 function clearDisplay() {
     const cards = document.querySelectorAll('.card');
