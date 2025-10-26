@@ -104,13 +104,13 @@
   }
   
   .top-bar {
-    margin-left: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
     margin-bottom: 16px;
   }
+
   
   dialog::backdrop {
     background: rgba(0, 0, 0, 0.5);
@@ -124,6 +124,9 @@
     border-radius: 50%;
     border: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.45);
+    background-color: rgb(209, 39, 9);
+    color: white;
+    font-weight: 1000;
     width: 30px;
     height: 30px;
     display: flex;
@@ -134,8 +137,16 @@
   .closeBtn:hover {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.853);
     background-color: rgb(224, 220, 220);
+    color: rgb(209, 39, 9);
 
   }
+
+  .form-group {
+    margin-bottom: 8px;
+    display: grid;
+    grid-template-columns: auto / auto;
+  }
+
 
   .read-status {
     display: flex;

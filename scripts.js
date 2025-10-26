@@ -99,10 +99,34 @@ function addNewBook(event) {
     let author = this.form.author.value;
     let pages = this.form.pages.value;
     let readStatus = this.form.readStatus.value;
-    addBookToLibrary(title, author, pages, readStatus);
-    displayLibrary();
-    this.form.reset();
-    dialog.close(); 
+    if(validateForm()){
+        addBookToLibrary(title, author, pages, readStatus);
+        displayLibrary();
+        this.form.reset();
+        dialog.close(); 
+    }
+}
+
+function validateForm() {
+    const title = document.querySelector("#title");
+    const author = document.querySelector("#author");
+
+    if(title.validity.valueMissing){
+        title.setCustomValidity("The title of the book must be specified.");
+        title.reportValidity();
+        return false;
+    }
+
+    if(author.validity.valueMissing){
+        author.setCustomValidity("The author of the book must be specified.");
+        author.reportValidity();
+        return false;
+    }
+
+    title.setCustomValidity("");
+    author.setCustomValidity("");
+    
+    return true;
 }
 
 addBookToLibrary('To Kill a Mockingbird', 'Harper Lee', 281, 'Yes');
@@ -142,6 +166,7 @@ deleteBtns.forEach((deleteBtn) => {
         }
     });
 });
+
 
 
 
